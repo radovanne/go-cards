@@ -4,12 +4,22 @@ import "fmt"
 
 type deck []string
 
+/*This function prints every card from the deck it was called upon.*/
 func (d deck) print() {
-	for _, card := range d {
-		fmt.Println(card)
+	for i, card := range d {
+		fmt.Println(i, card)
 	}
 }
 
+/*
+This function deals cards from the deck.
+It returns 2 values 'hand' and 'remaining set of cards' both of the type 'deck'
+*/
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
+
+/*This function creates a new deck of cards..*/
 func newDeck() deck {
 	cards := deck{}
 	cardSuits := []string{"Spades", "Hearts", "Diamonds", "Clubs"}
