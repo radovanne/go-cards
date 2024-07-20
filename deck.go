@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type deck []string
 
@@ -17,6 +20,14 @@ It returns 2 values 'hand' and 'remaining set of cards' both of the type 'deck'
 */
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+/*
+Helper function that converts whole deck slice to
+a string separated by commas ","
+*/
+func (d deck) toString() string {
+	return strings.Join(d, ",")
 }
 
 /*This function creates a new deck of cards..*/
